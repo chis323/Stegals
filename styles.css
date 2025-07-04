@@ -1,0 +1,549 @@
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Keeps content from hiding under navbar */
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+}
+
+body.dark .dark-toggle {
+  background-image: url('moon.png') !important;
+}
+header.navbar {
+  backface-visibility: hidden;
+  transform: translateZ(0); /* or translate3d(0,0,0) */
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding-top: 80px; /* Prevents hero being hidden by navbar */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #111;
+  padding: 1.1rem 2rem;
+  color: #fff;
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.nav-left, .nav-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.nav-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-right {
+  justify-content: flex-end;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #e7b100, #ffe385, #e7b100);
+  background-size: 400% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 6s linear infinite;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.0rem;
+  justify-content: right;
+  padding-right: 20px;
+}
+
+.nav-links a {
+  color: #fff;
+}
+
+.nav-links a:hover {
+  color: #f0a500;
+}
+
+.dark-toggle {
+  width: 32px;
+  height: 32px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+  background-color: transparent !important;
+
+}
+
+
+
+.dark-toggle:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+
+/* Hero Section */
+.hero {
+  position: relative;
+  background: url('lion.png') center/cover no-repeat;
+  background-attachment: fixed;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 2rem;
+  scroll-margin-top: 80px;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0);
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero .btn,
+.contact button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: #f0a500;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.hero .btn:hover,
+.contact button:hover {
+  background: #cf8600;
+}
+
+.hero .btn::after,
+.contact button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, #fff3, transparent 70%);
+  transform: scale(0);
+  transition: transform 0.4s ease;
+  z-index: -1;
+}
+
+.hero .btn:hover::after,
+.contact button:hover::after {
+  transform: scale(2);
+}
+
+/* Scroll margin for all sections */
+section {
+  scroll-margin-top: 80px;
+}
+
+/* About Section */
+.about {
+  padding: 3rem 2rem;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.about h2 {
+  margin-bottom: 1.5rem;
+}
+
+.about p {
+  text-align: left;
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  text-indent: 2em;
+}
+
+/* Contact Section */
+.contact {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.contact form {
+  max-width: 500px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+}
+
+.contact input,
+.contact textarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+/* Map Section */
+.map-section {
+  padding: 60px 20px;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.map-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.map-container iframe {
+  flex: 1;
+  min-width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.location-info {
+  flex: 1;
+  min-width: 300px;
+  text-align: left;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.location-info h3 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.location-info p {
+  margin: 10px 0;
+  color: #555;
+}
+
+/* FAQ Section */
+.faq-list {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  min-height: 140px;
+}
+
+.faq-image {
+  width: 32px;
+  height: 32px;
+  margin-top: 5px;
+}
+
+.faq-text h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.faq-text p {
+  margin: 0;
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.faq-h2{
+  display: flex;
+  justify-content: center;
+}
+
+
+/* WhatsApp Floating Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+  z-index: 1000;
+}
+
+.whatsapp-float:hover {
+  background-color: #1DA851;
+}
+
+/* Dark Mode Styling */
+body.dark {
+  background-color: #121212;
+  color: #eee;
+}
+
+body.dark .navbar {
+  background: #1e1e1e;
+}
+
+body.dark .nav-links a {
+  color: #eee;
+}
+
+body.dark .nav-links a:hover {
+  color: #f0a500;
+}
+
+body.dark .hero::after {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+body.dark .location-info p {
+  color: #ffffff;
+}
+
+body.dark .about,
+body.dark .map-section,
+body.dark .contact,
+body.dark .faq {
+  background: #181818;
+  color: #ddd;
+}
+
+body.dark .faq-item {
+  background: #222;
+  color: #eee;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+body.dark .faq-text h3 {
+  color: #f0a500;
+}
+
+body.dark .faq-text p {
+  color: #ccc;
+}
+
+body.dark .contact input,
+body.dark .contact textarea {
+  background-color: #222;
+  color: #eee;
+  border-color: #444;
+}
+
+body.dark .location-info {
+  background: #222;
+  color: #ddd;
+}
+
+body.dark .location-info h3 {
+  color: #f0a500;
+}
+
+body.dark .btn,
+body.dark button {
+  background: #f0a500;
+  color: #000;
+}
+
+body.dark .btn:hover,
+body.dark button:hover {
+  background: hsl(39, 100%, 41%);
+}
+
+body.dark .faq h2 {
+  color: #f0a500;
+}
+
+/* Dark Mode for Brand Carousel */
+body.dark .brand-carousel {
+   background: linear-gradient(to top, #181818,#181818,  #181818);
+  padding: 2rem 0;
+}
+
+body.dark .brand-carousel h2 {
+  color: #181818;
+}
+
+body.dark .swiper-slide img {
+  filter: grayscale(0%) brightness(1);
+}
+
+body.dark .swiper-slide img:hover {
+  filter: grayscale(0%) brightness(1);
+}
+
+
+@keyframes shine {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 25px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  opacity: 0;
+}
+
+.notification.success {
+  background: #ab9f3f;
+}
+
+.notification.error {
+  background: #F44336;
+}
+
+.notification.show {
+  opacity: 1;
+}
+
+.hidden {
+  display: none;
+}
+
+.brand-carousel {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.brand-carousel h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  max-width: 180px;
+  max-height: 200px;
+  object-fit: contain;
+  filter: blackscale(100%);
+  transition: filter 0.3s;
+}
+
+.swiper-slide img:hover {
+  filter: grayscale(0%);
+}
+
+
+/* Card Styling for Brand Carousel */
+.carousel-card {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.carousel-card h2 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, #000000, #6b6b6b, #000000);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+body.dark .carousel-card {
+  background-color: #ffffff;
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.05);
+}
+
+body.dark .carousel-card h2 {
+  color: #181818;
+}

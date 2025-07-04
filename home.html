@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STEGALS</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" href="transplogos.png" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+
+<body>
+  <header class="navbar" data-aos="fade-down">
+    <div class="logo">STEGALS</div>
+    <nav class="nav-links">
+      <a href="#home">Acasă</a>
+      <a href="#location">Locație</a>
+      <a href="#about">Despre</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#contact">Contact</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <button id="darkToggle" class="dark-toggle" aria-label="Comută mod întunecat">🌞</button>
+  </header>
+
+  <main>
+    <section id="home" class="hero" data-aos="fade-up">
+      <div class="hero-content">
+        <h1>Stegals Clothing Store</h1>
+        <p>Îmbrăcăminte fabricată în România</p>
+        <a href="#location" class="btn">Vizitează-ne</a>
+      </div>
+    </section>
+
+    <section id="location" class="map-section" data-aos="zoom-in">
+      <h2>Locația noastră</h2>
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2783.144431801724!2d21.2150742!3d45.7605737!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4745672cb29b4b4d%3A0xcd56ae5315463798!2sStegals!5e0!3m2!1sen!2sro!4v1620000000000!5m2!1sen!2sro" width="100%" height="400" style="border:0;" allowfullscreen loading="lazy"></iframe>
+        <div class="location-info">
+          <h3>STEGALS Clothing Store</h3>
+          <p>Strada Gheorghe Lazăr nr. 30-32</p>
+          <p>Timișoara, Romania</p>
+          <p><strong>Program:</strong></p>
+          <p>Luni–Vineri: 10:00–18:00</p>
+          <p>Sâmbătă: 10:00–14:00</p>
+          <p>Duminică: Închis</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about" data-aos="fade-up">
+      <h2>Despre noi</h2>
+      <p>
+        Magazinul nostru din Timișoara te așteaptă cu o selecție variată de haine românești și internaționale: ii, rochii elegante, lenjerie, plus îmbrăcăminte pentru mărimi mari. Stil, diversitate și prețuri accesibile – toate într-un spațiu prietenos și local.
+      </p>
+    </section>
+
+    <section id="brands" class="brand-carousel" data-aos="fade-up">
+      <div class="carousel-card">
+        <h2>PARTENERII NOȘTRI</h2>
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="piera.png" alt="Piera" /></div>
+            <div class="swiper-slide"><img src="knox.png" alt="Knox" /></div>
+            <div class="swiper-slide"><img src="barotti.png" alt="Barotti" /></div>
+            <div class="swiper-slide"><img src="auritex.png" alt="Auritex" /></div>
+            <div class="swiper-slide"><img src="dettys.png" alt="Dettys" /></div>
+            <div class="swiper-slide"><img src="marie.png" alt="marie-ie" /></div>
+            <div class="swiper-slide"><img src="torobisi.png" alt="Torobisi" /></div>
+            <div class="swiper-slide"><img src="andu.png" alt="andu" /></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact" data-aos="fade-up">
+      <h2>Contact</h2>
+      <div class="contact-details">
+        <p><strong>Email:</strong> <a href="mailto:stegalsclothingstore@gmail.com">stegalsclothingstore@gmail.com</a></p>
+        <p><strong>Telefon:</strong> <a href="tel:0723295309">0723 295 309</a>, <a href="tel:0732871851">0732 871 851</a></p>
+      </div>
+
+      <div id="form-notification" class="notification hidden">
+        <span id="notification-message"></span>
+      </div>
+
+      <form id="myForm" action="https://formspree.io/f/mldnzagr" method="POST">
+        <input type="text" name="name" placeholder="Nume" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <textarea name="message" placeholder="Mesaj" required></textarea>
+        <button type="submit">Trimite</button>
+      </form>
+    </section>
+
+    <section id="faq" class="faq">
+      <h2 class="faq-h2">Întrebări frecvente</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <img src="return.png" alt="Return" class="faq-image">
+          <div class="faq-text">
+            <h3>Politica de retur</h3>
+            <p>Poți returna produsele în termen de 14 zile de la primire. Articolele trebuie să fie nefolosite și în ambalajul original. Pentru retur, luați legătura cu noi prin email.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <img src="shipping.png" alt="Delivery" class="faq-image">
+          <div class="faq-text">
+            <h3>Cât durează livrarea?</h3>
+            <p>Livrăm în 1–3 zile lucrătoare prin curier rapid.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <img src="produs.png" alt="Order" class="faq-image">
+          <div class="faq-text">
+            <h3>Cum pot comanda un produs?</h3>
+            <p>Comenzile se pot efectua telefonic / prin email / pe WhatsApp cu detalii despre produsul dorit.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer style="text-align: center;">
+    <p>&copy; 2025 SC STEGALS S.R.L.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init();</script>
+  <script>
+    const toggle = document.getElementById("darkToggle");
+    const body = document.body;
+
+    if (localStorage.getItem("darkMode") === "true") {
+      body.classList.add("dark");
+      toggle.textContent = "🌙";
+    }
+
+    toggle.addEventListener("click", () => {
+      body.classList.toggle("dark");
+      const isDark = body.classList.contains("dark");
+      toggle.textContent = isDark ? "🌙" : "🌞";
+      localStorage.setItem("darkMode", isDark);
+    });
+
+    document.getElementById('myForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const notification = document.getElementById('form-notification');
+      const message = document.getElementById('notification-message');
+
+      fetch(this.action, {
+        method: 'POST',
+        body: new FormData(this),
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(response => {
+        if (response.ok) {
+          notification.className = 'notification success show';
+          message.textContent = 'Mesaj trimis cu succes! ✓';
+          this.reset();
+        } else {
+          notification.className = 'notification error show';
+          message.textContent = 'Eroare la trimitere. Încercați din nou.';
+        }
+        setTimeout(() => notification.classList.remove('show'), 5000);
+      })
+      .catch(() => {
+        notification.className = 'notification error show';
+        message.textContent = 'Eroare de conexiune. Încercați mai târziu.';
+        setTimeout(() => notification.classList.remove('show'), 5000);
+      });
+    });
+  </script>
+
+  <a href="https://wa.me/40732871851" class="whatsapp-float" target="_blank" aria-label="Contactează-ne pe WhatsApp">
+    💬 Contactează-ne
+  </a>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper(".mySwiper", {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      loop: true,
+      autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+      },
+      grabCursor: true,
+      simulateTouch: true,
+      breakpoints: {
+        640: { slidesPerView: 2 },
+        768: { slidesPerView: 3 },
+        1024: { slidesPerView: 5 },
+      },
+    });
+  </script>
+</body>
+
+</html>
