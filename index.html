@@ -22,10 +22,17 @@
       <a href="#contact">Contact</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <button id="darkToggle" class="dark-toggle" aria-label="Comută mod întunecat">🌞</button>
+    <div class="nav-controls">
+      <button id="darkToggle" class="dark-toggle" aria-label="Comută mod întunecat">🌞</button>
+      <button class="hamburger" aria-label="Deschide meniul">&#9776;</button>
+    </div>
   </header>
 
+  <!-- Mobile nav overlay -->
+  <div class="mobile-nav-overlay" id="navOverlay"></div>
+
   <main>
+    <!-- Hero Section -->
     <section id="home" class="hero" data-aos="fade-up">
       <div class="hero-content">
         <h1>Stegals Clothing Store</h1>
@@ -34,6 +41,7 @@
       </div>
     </section>
 
+    <!-- Location Section -->
     <section id="location" class="map-section" data-aos="zoom-in">
       <h2>Locația noastră</h2>
       <div class="map-container">
@@ -50,6 +58,7 @@
       </div>
     </section>
 
+    <!-- About -->
     <section id="about" class="about" data-aos="fade-up">
       <h2>Despre noi</h2>
       <p>
@@ -57,6 +66,7 @@
       </p>
     </section>
 
+    <!-- Brand Carousel -->
     <section id="brands" class="brand-carousel" data-aos="fade-up">
       <div class="carousel-card">
         <h2>PARTENERII NOȘTRI</h2>
@@ -75,6 +85,7 @@
       </div>
     </section>
 
+    <!-- Contact -->
     <section id="contact" class="contact" data-aos="fade-up">
       <h2>Contact</h2>
       <div class="contact-details">
@@ -94,6 +105,7 @@
       </form>
     </section>
 
+    <!-- FAQ -->
     <section id="faq" class="faq">
       <h2 class="faq-h2">Întrebări frecvente</h2>
       <div class="faq-list">
@@ -122,62 +134,24 @@
     </section>
   </main>
 
+  <!-- Footer -->
   <footer style="text-align: center;">
     <p>&copy; 2025 SC STEGALS S.R.L.</p>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script>AOS.init();</script>
-  <script>
-    const toggle = document.getElementById("darkToggle");
-    const body = document.body;
-
-    if (localStorage.getItem("darkMode") === "true") {
-      body.classList.add("dark");
-      toggle.textContent = "🌙";
-    }
-
-    toggle.addEventListener("click", () => {
-      body.classList.toggle("dark");
-      const isDark = body.classList.contains("dark");
-      toggle.textContent = isDark ? "🌙" : "🌞";
-      localStorage.setItem("darkMode", isDark);
-    });
-
-    document.getElementById('myForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const notification = document.getElementById('form-notification');
-      const message = document.getElementById('notification-message');
-
-      fetch(this.action, {
-        method: 'POST',
-        body: new FormData(this),
-        headers: { 'Accept': 'application/json' }
-      })
-      .then(response => {
-        if (response.ok) {
-          notification.className = 'notification success show';
-          message.textContent = 'Mesaj trimis cu succes! ✓';
-          this.reset();
-        } else {
-          notification.className = 'notification error show';
-          message.textContent = 'Eroare la trimitere. Încercați din nou.';
-        }
-        setTimeout(() => notification.classList.remove('show'), 5000);
-      })
-      .catch(() => {
-        notification.className = 'notification error show';
-        message.textContent = 'Eroare de conexiune. Încercați mai târziu.';
-        setTimeout(() => notification.classList.remove('show'), 5000);
-      });
-    });
-  </script>
-
+  <!-- WhatsApp CTA -->
   <a href="https://wa.me/40732871851" class="whatsapp-float" target="_blank" aria-label="Contactează-ne pe WhatsApp">
     💬 Contactează-ne
   </a>
 
+  <!-- JS Dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- AOS Init -->
+  <script>AOS.init();</script>
+
+  <!-- Swiper Init -->
   <script>
     const swiper = new Swiper(".mySwiper", {
       slidesPerView: 3,
@@ -196,6 +170,85 @@
       },
     });
   </script>
+
+  <!-- Dark Mode Toggle -->
+  <script>
+    const toggle = document.getElementById("darkToggle");
+    const body = document.body;
+
+    if (localStorage.getItem("darkMode") === "true") {
+      body.classList.add("dark");
+      toggle.textContent = "🌙";
+    }
+
+    toggle.addEventListener("click", () => {
+      body.classList.toggle("dark");
+      const isDark = body.classList.contains("dark");
+      toggle.textContent = isDark ? "🌙" : "🌞";
+      localStorage.setItem("darkMode", isDark);
+    });
+  </script>
+
+  <!-- Contact Form Handler -->
+  <script>
+    document.getElementById('myForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const notification = document.getElementById('form-notification');
+      const message = document.getElementById('notification-message');
+
+      fetch(this.action, {
+        method: 'POST',
+        body: new FormData(this),
+        headers: { 'Accept': 'application/json' }
+      })
+        .then(response => {
+          if (response.ok) {
+            notification.className = 'notification success show';
+            message.textContent = 'Mesaj trimis cu succes! ✓';
+            this.reset();
+          } else {
+            notification.className = 'notification error show';
+            message.textContent = 'Eroare la trimitere. Încercați din nou.';
+          }
+          setTimeout(() => notification.classList.remove('show'), 5000);
+        })
+        .catch(() => {
+          notification.className = 'notification error show';
+          message.textContent = 'Eroare de conexiune. Încercați mai târziu.';
+          setTimeout(() => notification.classList.remove('show'), 5000);
+        });
+    });
+  </script>
+
+  <!-- Mobile Nav Toggle -->
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const navOverlay = document.getElementById('navOverlay');
+    const navItems = document.querySelectorAll('.nav-links a');
+
+    function toggleNav(open) {
+      navLinks.classList.toggle('active', open);
+      navOverlay.classList.toggle('active', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = !navLinks.classList.contains('active');
+      toggleNav(isOpen);
+    });
+
+    navOverlay.addEventListener('click', () => {
+      toggleNav(false);
+    });
+
+    navItems.forEach(link => {
+      link.addEventListener('click', () => {
+        toggleNav(false);
+      });
+    });
+  </script>
+
 </body>
 
 </html>
