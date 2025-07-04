@@ -627,25 +627,7 @@ body.dark .carousel-card h2 {
 
 .swiper-slide img {
   max-width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: contain;
   padding: 10px;
-}
-/* By default, show everything */
-
-.mobile-only {
-  display: inline-block;
-}
-
-/* Hide mobile-only elements on larger screens */
-@media (min-width: 768px) {
-  .mobile-only {
-    display: none;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .mobile-menu {
-    display: none;
-  }
 }
