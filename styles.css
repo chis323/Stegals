@@ -528,15 +528,21 @@ body.dark .swiper-slide img:hover {
 }
 
 .carousel-card h2 {
-  font-size: 2.5rem;
+  font-size: clamp(1.5rem, 5vw, 2.5rem); /* responsive scaling */
   font-weight: 300;
   margin-bottom: 1.5rem;
+  white-space: nowrap;                   /* prevents line-break */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+
   background: linear-gradient(90deg, #000000, #6b6b6b, #000000);
   background-size: 200% auto;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 
 
 body.dark .carousel-card {
