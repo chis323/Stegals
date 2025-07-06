@@ -409,7 +409,7 @@ body.dark .location-info p {
   max-height: 200px;
   object-fit: contain;
   padding: 10px;
-  filter: grayscale(100%);
+  filter: grayscale(0%);
   transition: filter 0.3s ease;
 }
 
