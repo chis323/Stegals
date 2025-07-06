@@ -114,13 +114,10 @@ a {
   }
 
 .swiper-slide img {
-  max-width: 120px;
-  max-height: 100px;
-  object-fit: contain;
-  padding: 3px;
-  filter: grayscale(0%);
-  transition: filter 0.3s ease;
-}
+    max-width: 100px;
+    max-height: 80px;
+    padding: 10px;
+  }
 
 .carousel-card {
   background-color: #ffffff;
@@ -137,7 +134,7 @@ a {
   max-height: 200px;
   object-fit: contain;
   padding: 40px;
-  filter: grayscale(0%);
+  filter: none;
   transition: filter 0.3s ease;
 }
 
@@ -409,12 +406,12 @@ body.dark .location-info p {
   max-height: 200px;
   object-fit: contain;
   padding: 10px;
-  filter: grayscale(0%);
+  filter: none;
   transition: filter 0.3s ease;
 }
 
 .swiper-slide img:hover {
-  filter: grayscale(0%);
+  filter: none;
 }
 
 .carousel-card {
@@ -530,7 +527,7 @@ body.dark .carousel-card {
 }
 
 body.dark .swiper-slide img {
-  filter: grayscale(0%) brightness(1);
+  filter: none;
 }
 
 body.dark .brand-carousel {
