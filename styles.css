@@ -114,9 +114,9 @@ a {
   }
 
 .swiper-slide img {
-    max-width: 100px;
-    max-height: 80px;
-    padding: 10px;
+    max-width: 90px;
+    max-height: 70px;
+    padding: 3px;
   }
 
 .carousel-card {
