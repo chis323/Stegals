@@ -108,7 +108,7 @@ a {
 }
 
 /* Mobile Nav */
-@media (max-width: 1180px) {
+@media (max-width: 1200px) {
   .hamburger {
     display: block;
   }
